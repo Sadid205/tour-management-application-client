@@ -1,3 +1,4 @@
+import { DeleteConfirmation } from "@/components/DeleteConfirmation";
 import { AddTourTypeModal } from "@/components/modules/Admin/TourType/AddTourTypeModal";
 import { Button } from "@/components/ui/button";
 import {
@@ -36,9 +37,10 @@ export default function AddTourType() {
                   {item.name}
                 </TableCell>
                 <TableCell className="font-medium">
-                  <Button size="sm">
+                  {/* <Button size="sm">
                     <Trash2 />
-                  </Button>
+                  </Button> */}
+                  <DeleteConfirmation />
                 </TableCell>
               </TableRow>
             ))}
