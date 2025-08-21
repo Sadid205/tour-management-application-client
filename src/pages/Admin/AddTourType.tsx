@@ -13,7 +13,7 @@ import {
 import {
   useGetTourTypesQuery,
   useRemoveTourTypeMutation,
-} from "@/redux/features/Tour/tour.api";
+} from "@/redux/features/tour/tour.api";
 import { Trash2 } from "lucide-react";
 import { toast } from "sonner";
 
