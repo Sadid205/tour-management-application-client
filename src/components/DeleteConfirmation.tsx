@@ -9,13 +9,19 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
-export function DeleteConfirmation() {
+import type { ReactNode } from "react";
+interface IProps {
+  children: ReactNode;
+  onConfirm: () => void;
+}
+export function DeleteConfirmation({ children, onConfirm }: IProps) {
+  const handleConfirm = () => {
+    onConfirm();
+    console.log("Confirm Clicked");
+  };
   return (
     <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <Button variant="outline">Show Dialog</Button>
-      </AlertDialogTrigger>
+      <AlertDialogTrigger asChild>{children}</AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
@@ -26,7 +32,9 @@ export function DeleteConfirmation() {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
+          <AlertDialogAction onClick={handleConfirm}>
+            Continue
+          </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
